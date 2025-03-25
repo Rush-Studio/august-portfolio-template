@@ -1,0 +1,92 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+@layer base {
+  :root {
+    --background: 0 0% 7%;
+    --foreground: 0 0% 98%;
+    --card: 0 0% 9%;
+    --card-foreground: 0 0% 98%;
+    --popover: 0 0% 9%;
+    --popover-foreground: 0 0% 98%;
+    --primary: 0 0% 98%;
+    --primary-rgb: 250, 250, 250;
+    --primary-foreground: 0 0% 9%;
+    --secondary: 0 0% 13%;
+    --secondary-foreground: 0 0% 98%;
+    --muted: 0 0% 13%;
+    --muted-foreground: 0 0% 63.9%;
+    --accent: 0 0% 13%;
+    --accent-foreground: 0 0% 98%;
+    --border: 0 0% 13%;
+    --input: 0 0% 13%;
+    --ring: 0 0% 83.1%;
+    --radius: 0.5rem;
+  }
+}
+
+@layer base {
+  * {
+    @apply border-border;
+  }
+  body {
+    @apply bg-background text-foreground;
+    font-feature-settings: "rlig" 1, "calt" 1;
+  }
+  ::selection {
+    @apply bg-white/10 text-white;
+  }
+}
+
+.custom-cursor {
+  @apply fixed w-8 h-8 bg-white/5 border border-white/20 rounded-full pointer-events-none z-50 -translate-x-1/2 -translate-y-1/2 backdrop-blur-sm transition-all duration-200;
+}
+
+.custom-cursor.hovering {
+  @apply w-12 h-12 bg-white/10;
+}
+
+.dock {
+  @apply fixed bottom-8 left-1/2 -translate-x-1/2 flex items-center gap-2 p-3 rounded-full bg-secondary/50 backdrop-blur-xl border border-white/5;
+}
+
+.dock-item {
+  @apply relative p-2 rounded-full transition-all duration-300 hover:bg-white/5;
+}
+
+.dock-item::after {
+  content: attr(data-tooltip);
+  @apply absolute -top-10 left-1/2 -translate-x-1/2 px-3 py-1 text-xs rounded-full 
+         bg-secondary border border-white/5 opacity-0 transition-opacity duration-200;
+}
+
+.dock-item:hover::after {
+  @apply opacity-100;
+}
+
+.scramble {
+  @apply inline-block relative;
+}
+
+@keyframes fade-in {
+  from {
+    opacity: 0;
+    transform: translateY(10px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+@keyframes title {
+  from {
+    opacity: 0;
+    transform: translateY(1rem);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
