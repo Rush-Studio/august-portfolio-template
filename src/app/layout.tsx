@@ -7,7 +7,7 @@ import Analytics from './components/Analytics';
 const inter = Inter({ subsets: ['latin'] });
 
 export const metadata: Metadata = {
-  title: 'Sarah Chen - Tech Entrepreneur',
+  title: 'Leonardo Neco - Tech Entrepreneur',
   description: 'Founder of Nova AI and TechBridge Capital. Building the future of healthcare through artificial intelligence and ethical innovation.',
 };
 
